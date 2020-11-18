@@ -60,11 +60,14 @@ public class FlinkParameters extends AbstractParameters {
 
   private String appName;
 
+//  /**
+//   * taskManager count
+//   */
+//  private int  taskManager;
   /**
-   * taskManager count
+   * parallelism count
    */
-  private int  taskManager;
-
+  private int  parallelism;
   /**
    * job manager memory
    */
@@ -144,12 +147,20 @@ public class FlinkParameters extends AbstractParameters {
     this.appName = appName;
   }
 
-  public int getTaskManager() {
-    return taskManager;
+//  public int getTaskManager() {
+//    return taskManager;
+//  }
+//
+//  public void setTaskManager(int taskManager) {
+//    this.taskManager = taskManager;
+//  }
+
+  public int getParallelism() {
+    return parallelism;
   }
 
-  public void setTaskManager(int taskManager) {
-    this.taskManager = taskManager;
+  public void setParallelism(int parallelism) {
+    this.parallelism = parallelism;
   }
 
   public String getJobManagerMemory() {

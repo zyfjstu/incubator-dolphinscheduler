@@ -40,7 +40,8 @@ public class FlinkArgsUtilsTest {
     public String mode = "cluster";
     public int slot = 2;
     public String appName = "testFlink";
-    public int taskManager = 4;
+//    public int taskManager = 4;
+    public int parallelism = 4;
     public String taskManagerMemory = "2G";
     public String jobManagerMemory = "4G";
     public ProgramType programType = ProgramType.JAVA;
@@ -71,7 +72,7 @@ public class FlinkArgsUtilsTest {
         param.setMainClass(mainClass);
         param.setAppName(appName);
         param.setSlot(slot);
-        param.setTaskManager(taskManager);
+        param.setParallelism(parallelism);
         param.setJobManagerMemory(jobManagerMemory);
         param.setTaskManagerMemory(taskManagerMemory);
         param.setMainJar(mainJar);
@@ -98,8 +99,10 @@ public class FlinkArgsUtilsTest {
         assertEquals("-ynm",result.get(4));
         assertEquals(result.get(5),appName);
 
-        assertEquals("-yn", result.get(6));
-        assertSame(Integer.valueOf(result.get(7)),taskManager);
+//        assertEquals("-yn", result.get(6));
+//        assertSame(Integer.valueOf(result.get(7)),taskManager);
+        assertEquals("-p", result.get(6));
+        assertSame(Integer.valueOf(result.get(7)),parallelism);
 
         assertEquals("-yjm", result.get(8));
         assertEquals(result.get(9),jobManagerMemory);

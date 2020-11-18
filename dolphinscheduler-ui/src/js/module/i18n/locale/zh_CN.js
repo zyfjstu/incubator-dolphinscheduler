@@ -515,7 +515,7 @@ export default {
   'Execute time': '执行时间',
   'Complement range': '补数范围',
   slot: 'slot数量',
-  taskManager: 'taskManage数量',
+  parallelism: 'parallelism',
   jobManagerMemory: 'jobManager内存数',
   taskManagerMemory: 'taskManager内存数',
   'Http Url': '请求地址',

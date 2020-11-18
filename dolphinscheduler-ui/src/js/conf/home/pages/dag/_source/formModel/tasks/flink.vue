@@ -76,12 +76,12 @@
                   autocomplete="off">
         </x-input>
         </span>
-        <span class="sp1 sp3">{{$t('taskManager')}}</span>
+        <span class="sp1 sp3">{{$t('parallelism')}}</span>
         <span class="sp2">
           <x-input
                   :disabled="isDetails"
                   type="input"
-                  v-model="taskManager"
+                  v-model="parallelism"
                   :placeholder="$t('Please enter driver memory use')"
                   style="width: 186px;"
                   autocomplete="off">
@@ -194,8 +194,8 @@
         localParams: [],
         // Driver Number of cores
         slot: 1,
-        // Driver Number of memory
-        taskManager: '2',
+        // The parallelism with which to run the program
+        parallelism: '2',
         // Executor Number
         jobManagerMemory: '1G',
         // Executor Number of memory
@@ -338,7 +338,7 @@
           }),
           localParams: this.localParams,
           slot: this.slot,
-          taskManager: this.taskManager,
+          parallelism: this.parallelism,
           jobManagerMemory: this.jobManagerMemory,
           taskManagerMemory: this.taskManagerMemory,
           executorCores: this.executorCores,
@@ -468,7 +468,7 @@
           resourceList: resourceIdArr,
           localParams: this.localParams,
           slot: this.slot,
-          taskManager: this.taskManager,
+          parallelism: this.parallelism,
           jobManagerMemory: this.jobManagerMemory,
           taskManagerMemory: this.taskManagerMemory,
           executorCores: this.executorCores,
@@ -509,7 +509,7 @@
           }
           this.deployMode = o.params.deployMode || ''
           this.slot = o.params.slot || 1
-          this.taskManager = o.params.taskManager || '2'
+          this.parallelism = o.params.parallelism || '2'
           this.jobManagerMemory = o.params.jobManagerMemory || '1G'
           this.taskManagerMemory = o.params.taskManagerMemory || '2G'
 

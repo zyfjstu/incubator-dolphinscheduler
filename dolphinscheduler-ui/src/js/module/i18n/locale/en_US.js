@@ -320,7 +320,7 @@ export default {
   'Execute from the failed nodes': 'Execute from the failed nodes',
   'Complement Data': 'Complement Data',
   slot: 'slot',
-  taskManager: 'taskManager',
+  parallelism: 'parallelism',
   jobManagerMemory: 'jobManagerMemory',
   taskManagerMemory: 'taskManagerMemory',
   'Scheduling execution': 'Scheduling execution',

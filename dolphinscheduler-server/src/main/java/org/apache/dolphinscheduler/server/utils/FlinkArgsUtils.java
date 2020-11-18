@@ -63,12 +63,16 @@ public class FlinkArgsUtils {
                 args.add(appName);
             }
 
-            int taskManager = param.getTaskManager();
-            if (taskManager != 0) {                        //-yn
-                args.add(Constants.FLINK_TASK_MANAGE);
-                args.add(String.format("%d", taskManager));
+//            int taskManager = param.getTaskManager();
+//            if (taskManager != 0) {                        //-yn
+//                args.add(Constants.FLINK_TASK_MANAGE);
+//                args.add(String.format("%d", taskManager));
+//            }
+            int parallelism = param.getParallelism();
+            if (parallelism != 0) {                        //-p
+                args.add(Constants.FLINK_PARALLELISM);
+                args.add(String.format("%d", parallelism));
             }
-
             String jobManagerMemory = param.getJobManagerMemory();
             if (StringUtils.isNotEmpty(jobManagerMemory)) {
                 args.add(Constants.FLINK_JOB_MANAGE_MEM);

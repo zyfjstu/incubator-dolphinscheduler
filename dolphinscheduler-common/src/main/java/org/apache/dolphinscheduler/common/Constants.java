@@ -812,8 +812,8 @@ public final class Constants {
     public static final String FLINK_RUN_MODE = "-m";
     public static final String FLINK_YARN_SLOT = "-ys";
     public static final String FLINK_APP_NAME = "-ynm";
-    public static final String FLINK_TASK_MANAGE = "-yn";
-
+//    public static final String FLINK_TASK_MANAGE = "-yn";
+    public static final String FLINK_PARALLELISM = "-p";
     public static final String FLINK_JOB_MANAGE_MEM = "-yjm";
     public static final String FLINK_TASK_MANAGE_MEM = "-ytm";
     public static final String FLINK_DETACH = "-d";

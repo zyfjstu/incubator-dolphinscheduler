@@ -108,18 +108,21 @@ public class FlinkArgsUtils {
 
         // --files --conf --libjar ...
         String others = param.getOthers();
-        String queue = param.getQueue();
         if (StringUtils.isNotEmpty(others)) {
-
-            if (!others.contains(Constants.FLINK_QUEUE) && StringUtils.isNotEmpty(queue) && !deployMode.equals(LOCAL_DEPLOY_MODE)) {
-                args.add(Constants.FLINK_QUEUE);
-                args.add(param.getQueue());
-            }
             args.add(others);
-        } else if (StringUtils.isNotEmpty(queue) && !deployMode.equals(LOCAL_DEPLOY_MODE)) {
-            args.add(Constants.FLINK_QUEUE);
-            args.add(param.getQueue());
         }
+//        String queue = param.getQueue();
+//        if (StringUtils.isNotEmpty(others)) {
+//
+//            if (!others.contains(Constants.FLINK_QUEUE) && StringUtils.isNotEmpty(queue) && !deployMode.equals(LOCAL_DEPLOY_MODE)) {
+//                args.add(Constants.FLINK_QUEUE);
+//                args.add(param.getQueue());
+//            }
+//            args.add(others);
+//        } else if (StringUtils.isNotEmpty(queue) && !deployMode.equals(LOCAL_DEPLOY_MODE)) {
+//            args.add(Constants.FLINK_QUEUE);
+//            args.add(param.getQueue());
+//        }
 
         return args;
     }

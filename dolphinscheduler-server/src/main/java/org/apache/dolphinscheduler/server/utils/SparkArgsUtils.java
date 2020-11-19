@@ -93,21 +93,24 @@ public class SparkArgsUtils {
 
         // --files --conf --libjar ...
         String others = param.getOthers();
-        String queue = param.getQueue();
         if (StringUtils.isNotEmpty(others)) {
-
-            if(!others.contains(Constants.SPARK_QUEUE) && StringUtils.isNotEmpty(queue)){
-                args.add(Constants.SPARK_QUEUE);
-                args.add(queue);
-            }
-
             args.add(others);
-
-        }else if (StringUtils.isNotEmpty(queue)) {
-            args.add(Constants.SPARK_QUEUE);
-            args.add(queue);
-
         }
+//        String queue = param.getQueue();
+//        if (StringUtils.isNotEmpty(others)) {
+//
+//            if(!others.contains(Constants.SPARK_QUEUE) && StringUtils.isNotEmpty(queue)){
+//                args.add(Constants.SPARK_QUEUE);
+//                args.add(queue);
+//            }
+//
+//            args.add(others);
+//
+//        }else if (StringUtils.isNotEmpty(queue)) {
+//            args.add(Constants.SPARK_QUEUE);
+//            args.add(queue);
+//
+//        }
 
         ResourceInfo mainJar = param.getMainJar();
         if (mainJar != null) {

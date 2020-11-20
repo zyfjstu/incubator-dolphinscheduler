@@ -18,14 +18,12 @@ package org.apache.dolphinscheduler.server.utils;
 
 import java.nio.charset.StandardCharsets;
 import org.apache.dolphinscheduler.common.Constants;
-import org.apache.dolphinscheduler.common.utils.CommonUtils;
-import org.apache.dolphinscheduler.common.utils.LoggerUtils;
-import org.apache.dolphinscheduler.common.utils.OSUtils;
-import org.apache.dolphinscheduler.common.utils.StringUtils;
+import org.apache.dolphinscheduler.common.utils.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.dolphinscheduler.remote.utils.Host;
 import org.apache.dolphinscheduler.server.entity.TaskExecutionContext;
 import org.apache.dolphinscheduler.service.log.LogClientService;
+import org.apache.hadoop.conf.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -315,6 +313,19 @@ public class ProcessUtils {
     }
   }
 
+  public static void cancelApplication(List<String> appIds, Logger logger)
+          throws IOException {
+      YarnAdapter instance = YarnAdapter.getInstance();
+      if(instance != null){
+          appIds.forEach(x -> instance.killApplicationId(x));
+          instance.close();
+      }
+      else{
+          logger.error("kill application error");
+      }
+
+  }
+
   /**
    * kill tasks according to different task types
    *
@@ -396,7 +407,8 @@ public class ProcessUtils {
           throw new RuntimeException("task instance work dir is empty");
         }
         if (appIds.size() > 0) {
-          cancelApplication(appIds, logger, taskExecutionContext.getTenantCode(), taskExecutionContext.getExecutePath());
+//          cancelApplication(appIds, logger, taskExecutionContext.getTenantCode(), taskExecutionContext.getExecutePath());
+          cancelApplication(appIds, logger);
         }
       }
 

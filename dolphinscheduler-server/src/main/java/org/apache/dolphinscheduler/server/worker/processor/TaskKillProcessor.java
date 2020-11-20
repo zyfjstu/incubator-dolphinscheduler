@@ -176,7 +176,8 @@ public class TaskKillProcessor implements NettyRequestProcessor {
                     throw new RuntimeException("task instance execute path is empty");
                 }
                 if (appIds.size() > 0) {
-                    ProcessUtils.cancelApplication(appIds, logger, tenantCode, executePath);
+//                    ProcessUtils.cancelApplication(appIds, logger, tenantCode, executePath);
+                    ProcessUtils.cancelApplication(appIds, logger);
                     return appIds;
                 }
             }

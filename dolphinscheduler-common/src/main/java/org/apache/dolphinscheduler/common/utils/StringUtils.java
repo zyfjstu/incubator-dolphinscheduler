@@ -37,4 +37,7 @@ public class StringUtils {
     public static boolean isNotBlank(String s){
         return !isBlank(s);
     }
+    public static boolean equals(CharSequence cs1, CharSequence cs2) {
+        return cs1 == null ? cs2 == null : cs1.equals(cs2);
+    }
 }
